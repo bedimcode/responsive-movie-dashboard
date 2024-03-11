@@ -1,0 +1,78 @@
+========== HEADER ==========
+.header__logo
+PELIXS
+
+.header__search input
+Search movies
+
+
+========== NAV ==========
+.nav__logo
+PELIXS
+
+.nav__link span
+Home
+Movies
+Series
+Favorites
+
+.nav__title .nav__link span
+Account
+Profile
+Profile 2
+
+Log Out
+
+
+========== BANNER ==========
+.banner__title .banner__category
+Avengers
+Action
+
+
+========== MOVIES ==========
+.card__title
+Movies
+
+.card__name .card__category
+Avengers
+Action
+
+Interstellar
+Science/Fiction
+
+The Lord of the Rings
+Science/Fiction
+
+Inception
+Action
+
+The Dark Knight
+Science Fiction
+
+Avengers Age of Ultron
+Action
+
+
+========== NEW ==========
+.card__title
+New
+
+.card__name .card__category
+Jurassic World
+Science/Fiction
+
+Spider-Man No Way Home
+Science/Action
+
+Fantastic Beasts: Dumbledore's Secrets
+Adventure/Fantasy
+
+Toy Story
+Animation
+
+Sonic 2
+Action/Adventure
+
+X-Men
+Science/Action
