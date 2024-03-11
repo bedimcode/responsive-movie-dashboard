@@ -1,0 +1,40 @@
+/*=============== NEW ===============*/
+.new{
+   position: relative;
+   display: grid;
+
+   &__card{
+      scale: .8;
+      transition: scale .4s;
+   }
+   &__data{
+      opacity: 0;
+      transition: opacity .4s;
+   }
+}
+
+/* Swiper class */
+.swiper-slide-active .new__data{
+   opacity: 1;
+}
+
+.new .swiper-pagination-bullets {
+   bottom: -2.5rem;
+}
+ 
+.new .swiper-pagination-bullet {
+   width: 1.5rem;
+   height: .25rem;
+   border-radius: 1rem;
+   background-color: var(--white-color);
+   transition: background-color .3s, opacity .3s;
+}
+
+.new .swiper-pagination-bullet-active {
+   background-color: var(--white-color);
+}
+
+.new .swiper-slide-active,
+.new .swiper-slide-duplicate-active {
+  scale: 1;
+}

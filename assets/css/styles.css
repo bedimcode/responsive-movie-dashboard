@@ -1,0 +1,496 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --white-color: hsl(0, 0%, 100%);
+  --white-color-light: hsl(0, 0%, 90%);
+  --shadow-bg: linear-gradient(180deg,
+             hsla(0, 0%, 0%, 0) 60%,
+             hsla(0, 0%, 0%, .7) 78%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --big-font-size: 1.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --big-font-size: 3rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body,
+input,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  color: var(--white-color);
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== LAYOUT ===============*/
+.main {
+  display: grid;
+  row-gap: 1.5rem;
+  margin-inline: 1.5rem;
+  padding-block: 8.5rem 4rem;
+}
+
+.bg__image, 
+.bg__blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.bg__image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.bg__blur {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/*=============== HEADER ===============*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  display: grid;
+  row-gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  z-index: var(--z-fixed);
+}
+
+.header__content, 
+.header__actions, 
+.header__search {
+  display: flex;
+}
+
+.header__content {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+}
+
+.header__actions {
+  column-gap: .75rem;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.header__actions i, 
+.header__menu {
+  cursor: pointer;
+}
+
+.header__search {
+  align-items: center;
+  column-gap: .5rem;
+  background-color: hsla(0, 0%, 100%, .15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding-inline: 1rem;
+  border-radius: .75rem;
+}
+
+.header__search i {
+  font-size: 1.25rem;
+}
+
+.header__input {
+  width: 100%;
+  padding-block: 1rem;
+  background-color: transparent;
+  color: var(--white-color);
+}
+
+.header__input::placeholder {
+  color: var(--white-color);
+}
+
+/* Add blur header */
+.blur-header::after {
+  content: "";
+  position: absolute;
+  width: 1000%;
+  height: 100%;
+  background-color: hsla(0, 0%, 0%, .2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/*=============== NAV ===============*/
+.nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  background-color: hsla(0, 0%, 0%, .2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  width: 285px;
+  height: 100%;
+  padding: 3rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: var(--z-fixed);
+  transition: right .4s;
+}
+
+.nav__logo {
+  color: var(--white-color);
+  font-weight: var(--font-semi-bold);
+}
+.nav__logo, 
+.nav__list {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--white-color);
+}
+
+.nav__menu, 
+.nav__list {
+  display: grid;
+  row-gap: 2rem;
+}
+
+.nav__link {
+  color: var(--white-color);
+  display: inline-flex;
+  align-items: center;
+  column-gap: .75rem;
+}
+
+.nav__link i {
+  font-size: 1.5rem;
+}
+
+.nav__title {
+  font-size: var(--normal-font-size);
+  margin-bottom: .75rem;
+}
+
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Show menu */
+.show-menu {
+  right: 0;
+}
+
+/*=============== BANNER ===============*/
+.banner__link {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--white-color);
+}
+
+.banner__img {
+  border-radius: 1rem;
+}
+
+.banner__shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--shadow-bg);
+  border-radius: 1rem;
+}
+
+.banner__data {
+  position: absolute;
+  bottom: 1.5rem;
+  text-align: center;
+}
+
+.banner__title {
+  font-size: var(--big-font-size);
+}
+
+/*=============== CARDS ===============*/
+.card__title {
+  font-size: var(--h3-font-size);
+  margin-bottom: .75rem;
+}
+
+.card__article {
+  width: 152px;
+}
+
+.card__link {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--white-color);
+}
+
+.card__img {
+  border-radius: 1rem;
+}
+
+.card__shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--shadow-bg);
+  border-radius: 1rem;
+}
+
+.card__data {
+  position: absolute;
+  bottom: 1rem;
+  text-align: center;
+  padding-inline: .75rem;
+}
+
+.card__name {
+  font-size: var(--normal-font-size);
+}
+
+.card__category {
+  font-size: var(--small-font-size);
+}
+
+.card__like {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/*=============== MOVIES ===============*/
+.movie {
+  display: grid;
+}
+
+/* Swiper class */
+.swiper {
+  margin-inline: initial;
+}
+
+/*=============== NEW ===============*/
+.new {
+  position: relative;
+  display: grid;
+}
+
+.new__card {
+  scale: .8;
+  transition: scale .4s;
+}
+
+.new__data {
+  opacity: 0;
+  transition: opacity .4s;
+}
+
+/* Swiper class */
+.swiper-slide-active .new__data {
+  opacity: 1;
+}
+
+.new .swiper-pagination-bullets {
+  bottom: -2.5rem;
+}
+
+.new .swiper-pagination-bullet {
+  width: 1.5rem;
+  height: .25rem;
+  border-radius: 1rem;
+  background-color: var(--white-color);
+  transition: background-color .3s, opacity .3s;
+}
+
+.new .swiper-pagination-bullet-active {
+  background-color: var(--white-color);
+}
+
+.new .swiper-slide-active,
+.new .swiper-slide-duplicate-active {
+  scale: 1;
+}
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: .6rem;
+  background-color: hsl(0, 0%, 15%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(0, 0%, 30%);
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 300px) {
+  .main {
+    margin-inline: 1rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 768px) {
+  .banner__card, .banner__img {
+    height: 400px;
+  }
+  .banner__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 968px) {
+  .main {
+    margin-inline: 20rem 2rem;
+    row-gap: 2.5rem;
+    padding-top: 7.5rem;
+  }
+
+  .nav {
+    right: initial;
+    left: 0;
+  }
+
+  .nav__close,
+  .header__logo,
+  .header__menu {
+    display: none;
+  }
+
+  .header {
+    width: calc(100% - 17rem);
+    left: initial;
+    right: 0;
+    height: calc(var(--header-height) + 2rem);
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem 0 3rem;
+  }
+  .header__search {
+    order: -1;
+    width: 450px;
+  }
+  .header__actions {
+    column-gap: 1.25rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .banner__data {
+    bottom: 2.5rem;
+  }
+  .banner__category {
+    font-size: var(--h1-font-size);
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .banner__card, 
+  .banner__img {
+    height: 480px;
+  }
+  .banner__img, 
+  .banner__shadow {
+    border-radius: 2rem;
+  }
+
+  .card__title {
+    font-size: var(--h2-font-size);
+  }
+  .card__data {
+    padding-inline: 1.5rem;
+    bottom: 1.5rem;
+  }
+  .card__name {
+    font-size: var(--h3-font-size);
+    margin-bottom: .25rem;
+  }
+  .card__category {
+    font-size: var(--normal-font-size);
+  }
+}

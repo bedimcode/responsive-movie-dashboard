@@ -1,0 +1,29 @@
+/*=============== BANNER ===============*/
+.banner{
+   &__link{
+      position: relative;
+      display: grid;
+      place-items: center;
+      color: var(--white-color);
+   }
+   &__img{
+      border-radius: 1rem;
+   }
+   &__shadow{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--shadow-bg);
+      border-radius: 1rem;
+   }
+   &__data{
+      position: absolute;
+      bottom: 1.5rem;
+      text-align: center;
+   }
+   &__title{
+      font-size: var(--big-font-size);
+   }
+}

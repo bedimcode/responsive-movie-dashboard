@@ -1,0 +1,58 @@
+/*=============== NAV ===============*/
+.nav{
+   position: fixed;
+   top: 0;
+   right: -100%;
+   background-color: hsla(0, 0%, 0%, .2);
+   backdrop-filter: blur(16px);
+   -webkit-backdrop-filter: blur(16px);
+   width: 285px;
+   height: 100%;
+   padding: 3rem 3.5rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   z-index: var(--z-fixed);
+   transition: right .4s;
+   
+   &__logo{
+      color: var(--white-color);
+      font-weight: var(--font-semi-bold);
+   }
+   &__logo,
+   &__list{
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--white-color);
+   }
+   &__menu,
+   &__list{
+      display: grid;
+      row-gap: 2rem;
+   }
+   &__link{
+      color: var(--white-color);
+      display: inline-flex;
+      align-items: center;
+      column-gap: .75rem;
+
+      & i{
+         font-size: 1.5rem;
+      }
+   }
+   &__title{
+      font-size: var(--normal-font-size);
+      margin-bottom: .75rem;
+   }
+   &__close{
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+   }
+}
+
+/* Show menu */
+.show-menu{
+   right: 0;
+}

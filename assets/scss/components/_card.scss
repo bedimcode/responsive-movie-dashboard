@@ -1,0 +1,47 @@
+/*=============== CARDS ===============*/
+.card{
+   &__title{
+      font-size: var(--h3-font-size);
+      margin-bottom: .75rem;
+   }
+   &__article{
+      width: 152px;
+   }
+   &__link{
+      position: relative;
+      display: grid;
+      place-items: center;
+      color: var(--white-color);
+   }
+   &__img{
+      border-radius: 1rem;
+   }
+   &__shadow{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--shadow-bg);
+      border-radius: 1rem;
+   }
+   &__data{
+      position: absolute;
+      bottom: 1rem;
+      text-align: center;
+      padding-inline: .75rem;
+   }
+   &__name{
+      font-size: var(--normal-font-size);
+   }
+   &__category{
+      font-size: var(--small-font-size);
+   }
+   &__like{
+      position: absolute;
+      top: .75rem;
+      right: .75rem;
+      font-size: 1.25rem;
+      cursor: pointer;
+   }
+}
